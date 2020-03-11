@@ -5,10 +5,18 @@ public class RecursionProblems {
     public static void main(String[] args) {
         RecursionProblems recursionProblems = new RecursionProblems();
 
-        System.out.println(recursionProblems.factorial(5));
+        //ONE
+        //System.out.println(recursionProblems.factorial(5));
+
+        //TWO
+        //System.out.println(recursionProblems.bunnyEars(5));
+
+        //THREE
+        System.out.println(recursionProblems.sevens(717));
     }
 
-    public int factorial(int n) {
+    //ONE
+    private int factorial(int n) {
         if(n==1)
             return 1;
 
@@ -26,14 +34,41 @@ public class RecursionProblems {
 //    bunnyEars2(1) → 2
 //    bunnyEars2(2) → 5
 
+    //TWO
+    private int bunnyEars(int numberOfBunnies){
+
+        if(numberOfBunnies == 0)
+            return 0;
+
+        if(numberOfBunnies %2 == 0)
+            return bunnyEars(numberOfBunnies - 1) + 3;
+
+        return bunnyEars(numberOfBunnies - 1) + 2;
+    }
 
 
-//    Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+
+//    Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops).
+//    Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 //
 //
 //    count7(717) → 2
 //    count7(7) → 1
 //    count7(123) → 0
+
+    //THREE
+    private int sevens(int numberOfSevens){
+
+        if(numberOfSevens == 0)
+            return 0;
+
+        if(numberOfSevens %10 == 7)
+            return sevens(numberOfSevens%10);
+
+        return sevens(numberOfSevens/10);
+
+    }
+
 
 
 //    Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
